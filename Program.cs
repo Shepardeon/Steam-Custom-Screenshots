@@ -32,7 +32,7 @@ namespace VRChat_Image_Converter
                     Console.WriteLine("T'es un blaireau! Le chemin rensigné n'existe pas sur ta machine.");
                 Console.WriteLine("Entrez le chemin où vous voulez que vos images soient sauvegardés et appuyez sur ENTRER");
                 Console.WriteLine("(et si t'es pas trop con tu feras un glisser-déposer du dossier et tu feras pas chier)");
-                basePath = Console.ReadLine();
+                basePath = Console.ReadLine().Trim('"');
 
                 if (!Directory.Exists(basePath))
                     blaireau = true;
@@ -49,7 +49,7 @@ namespace VRChat_Image_Converter
 
                 Console.WriteLine("Tu valides ? (O/N)");
 
-            } while (Console.ReadLine().ToUpper() != "O" && blaireau);
+            } while (Console.ReadLine().ToUpper() != "O" || blaireau);
 
             foreach(string file in files)
             {
